@@ -1,0 +1,31 @@
+<Configuration status="INFO">
+  <Properties>
+    <Property name="logName">GraphQL Server Example</Property>
+    <Property name="layoutPattern">%style{%d{yyyy/MM/dd HH:mm:ss,SSS}}{cyan} %highlight{[%-5p]}{FATAL=bg_red, ERROR=red, INFO=green, DEBUG=blue}  [%C] %style{[%t]}{yellow}- %m%n -</Property>
+  </Properties>
+
+  <Appenders>
+    <Console name="ConsoleAppender" target="SYSTEM_OUT">
+      <PatternLayout pattern="${layoutPattern}"/>
+    </Console>
+  </Appenders>
+
+  <Loggers>
+    <Root level="INFO" additivity="false">
+      <AppenderRef ref="ConsoleAppender"/>
+    </Root>
+
+    <Logger name="io.ktor" level="INFO" additivity="false">
+      <AppenderRef ref="ConsoleAppender" />
+    </Logger>
+    <Logger name="graphql" level="INFO" additivity="false">
+      <AppenderRef ref="ConsoleAppender" />
+    </Logger>
+    <Logger name="io.netty" level="INFO" additivity="false">
+      <AppenderRef ref="ConsoleAppender" />
+    </Logger>
+    <Logger name="io.hyosub" level="INFO" additivity="false">
+      <AppenderRef ref="ConsoleAppender" />
+    </Logger>
+  </Loggers>
+</Configuration>
